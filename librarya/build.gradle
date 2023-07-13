@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace 'com.matejdro.mylibrary'
+    namespace 'com.matejdro.librarya'
     compileSdk 33
 
     defaultConfig {
@@ -33,7 +33,10 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion '1.4.7'
+        kotlinCompilerExtensionVersion '1.4.8'
+    }
+    anvil {
+        generateDaggerFactories = true
     }
 }
 

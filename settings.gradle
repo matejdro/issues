@@ -12,6 +12,7 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "MultibindsAnvilDemo"
+rootProject.name = "AnvilDemo"
 include ':app'
-include ':mylibrary'
+include ':librarya'
+include ':libraryb'

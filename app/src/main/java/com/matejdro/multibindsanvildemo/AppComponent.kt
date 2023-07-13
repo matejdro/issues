@@ -1,10 +1,11 @@
 package com.matejdro.multibindsanvildemo
 
-import com.matejdro.mylibrary.AppScope
 import com.matejdro.mylibrary.BaseClass
+import com.matejdro.mylibrary.ParentClass
 import com.squareup.anvil.annotations.MergeComponent
+import dagger.MembersInjector
 
 @MergeComponent(AppScope::class)
 interface AppComponent {
-    fun provideMultibindsSet(): Set<BaseClass>
+    fun getParentClassInjector(): MembersInjector<ParentClass>
 }
