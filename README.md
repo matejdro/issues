@@ -1,3 +1,3 @@
-## Anvil 2.4.5 does not pick up new files with Multibindings
+## Getting MembersInjector fails when both parent and subclass have Inject fields
 
-https://github.com/square/anvil/issues/710
+https://github.com/square/anvil/issues/723
