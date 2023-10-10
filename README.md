@@ -1,2 +1,1 @@
-# issues
-Code samples for various Github Issues
+https://github.com/ZacSweers/MoshiX/issues/499
