@@ -21,7 +21,7 @@ import com.squareup.anvil.annotations.ContributesTo
 import com.squareup.anvil.annotations.ExperimentalAnvilApi
 import com.squareup.anvil.compiler.api.AnvilContext
 import com.squareup.anvil.compiler.api.CodeGenerator
-import com.squareup.anvil.compiler.api.GeneratedFile
+import com.squareup.anvil.compiler.api.FileWithContent
 import com.squareup.anvil.compiler.api.createGeneratedFile
 import com.squareup.anvil.compiler.internal.buildFile
 import com.squareup.anvil.compiler.internal.reference.ClassReference
@@ -46,7 +46,7 @@ class DemoGenerator : CodeGenerator {
         codeGenDir: File,
         module: ModuleDescriptor,
         projectFiles: Collection<KtFile>
-    ): Collection<GeneratedFile> {
+    ): Collection<FileWithContent> {
         return projectFiles.classAndInnerClassReferences(module)
             .filter {
                 it.shortName == "MyClass"
@@ -55,7 +55,7 @@ class DemoGenerator : CodeGenerator {
             }.toList()
     }
 
-    private fun generateModule(codeGenDir: File, clas: ClassReference.Psi): GeneratedFile {
+    private fun generateModule(codeGenDir: File, clas: ClassReference.Psi): FileWithContent {
         val packageName = clas.packageFqName.safePackageString(
             dotPrefix = false,
             dotSuffix = false,
@@ -86,7 +86,7 @@ class DemoGenerator : CodeGenerator {
             addType(moduleObjectSpec)
         }
 
-        return createGeneratedFile(codeGenDir, packageName, "MyClassModule", content)
+        return createGeneratedFile(codeGenDir, packageName, "MyClassModule", content, clas.containingFileAsJavaFile)
     }
 
     override fun isApplicable(context: AnvilContext): Boolean = true
